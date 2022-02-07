@@ -5,7 +5,7 @@ const Create = () => {
       <div>
           
       </div>
-      me harto la ale 
+      
   </div>;
 };
 

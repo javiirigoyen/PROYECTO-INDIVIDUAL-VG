@@ -72,8 +72,14 @@ const apiInfoByName = async (name) => {
             genres: i.genres.map(e => e.name),
         }
     });
-    
-    return mapInfo;
+    let games = []; 
+
+    for(let i = 0; i < 2; i++){
+        games.push(mapInfo[i]);
+
+    }
+
+return mapInfo;
 }
 const apiInfoByid = async (id) => {
     let infoId = await axios.get(`https://api.rawg.io/api/games/${id}?key=eab826d4cf914afe83805016c7dd641d`);
@@ -172,7 +178,7 @@ router.get('/videogame/:id', async (req, res) => {
      
 })
 //Ruta para crear un juego y almazenarlo en la base de datos
-router.post('/', async(req, res) => {
+router.post('/create', async(req, res) => {
     const { name, description, released, rating, platforms, image, genre } = req.body;
     try{
         let genreDB = await Genre.findAll({

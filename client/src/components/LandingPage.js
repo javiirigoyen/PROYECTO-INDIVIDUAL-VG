@@ -6,8 +6,6 @@ const LandingPage = () => {
       <Link to="/home">
       <button>ingresar</button>
       </Link>
-      
-  </div>;
+         </div>;
 };
-
 export default LandingPage;
