@@ -6,10 +6,11 @@ export const GET_GAMES_BY_NAME = "GET_GAMES_BY_NAME "
 export const GET_GAMES_BY_ID = "GET_GAMES_BY_ID"
 export const CREATE_GAME = "CREATE_GAME"
 export const GET_GENRE = "GET_GENRE"
+export const RESET = "RESET"
 
 // ESTA ES LA CONEXION DEL BACK CON EL FRONT
  export const getAllGames = () => async dispatch => {
-    return  await axios.get("http://localhost:3001/",{
+    return  await axios.get("http://localhost:3001/videogames",{
 
     })
     .then((response) => {
@@ -22,7 +23,7 @@ export const GET_GENRE = "GET_GENRE"
 }
 
  export const getDb = () => async dispatch => {
-    return  await axios.get("http://localhost:3001/database")
+    return  await axios.get("http://localhost:3001/videogames/database")
     .then((response) => {
         dispatch({
           type: GET_DB,
@@ -32,7 +33,7 @@ export const GET_GENRE = "GET_GENRE"
 
 }
 
-export const getGamesByName = (name) => async dispatch => {
+export const getGameByName = (name) => async dispatch => {
     return  await axios.get(`http://localhost:3001/videogames?name=${name}`)
     .then((response) => {
         dispatch({
@@ -43,7 +44,7 @@ export const getGamesByName = (name) => async dispatch => {
 
 }
 
-export const getById = (id) => async dispatch => {
+export const getGamesById = (id) => async dispatch => {
     return  await axios.get(`http://localhost:3001/videogames/${id}`)
     .then((response) => {
         dispatch({
@@ -55,7 +56,7 @@ export const getById = (id) => async dispatch => {
 }
 
 export const createGame = () => async dispatch => {
-    return  await axios.get("http://localhost:3001/create")
+    return  await axios.get("http://localhost:3001/videogames/create")
     .then((response) => {
         dispatch({
           type: CREATE_GAME,
@@ -74,5 +75,11 @@ export const getGenre = () => async dispatch => {
         });
       });
 
+}
+
+export const reset = () => dispatch => {
+  return dispatch({
+    type: RESET
+  })
 }
 

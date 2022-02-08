@@ -1,5 +1,7 @@
-import { GET_ALL_GAMES, GET_DB, GET_GAMES_BY_NAME, GET_GAMES_BY_ID, CREATE_GAME } from '../actions/index'
+import { GET_ALL_GAMES, GET_DB, GET_GAMES_BY_NAME, GET_GAMES_BY_ID, GET_GENRE, RESET  } from '../Actions/index'
+
 const inicialState = { 
+    genre:[],
     videogames: [], 
     videogamesId: {} };
 
@@ -25,8 +27,19 @@ const rootReducer = (state = inicialState, action) => {
             ...state,
             videogamesId: action.payload
         }
-        default:
-        return state
+        case RESET:
+            return {
+                ...state, 
+                videogamesId: {}
+            }
+            case GET_GENRE:
+                return {
+                    ...state,
+                    genre: action.payload
+                }
+                default:
+            return state
+           
 
     }
 }

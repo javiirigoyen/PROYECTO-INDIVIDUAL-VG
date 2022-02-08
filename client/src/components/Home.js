@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllGames } from '../redux/actions';
+import { getAllGames } from '../Redux/Actions';
 import Nav from './Nav';
 import CardVideoGame from "./CardVideoGame"
 
@@ -15,7 +15,7 @@ const Home = () => {
     setLoading(true)
   }, []);
   
-
+console.log(videojuegos)
   return (
 
     <div>
@@ -24,11 +24,12 @@ const Home = () => {
         loading ? (
           <div>
             {
-              videojuegos?.map(v => <CardVideoGame
+              videojuegos?.map((v, index) => <CardVideoGame
               name={v.name}
               genres={v.genres}
-              img={v.img}
-              key={v.id}
+              img={v.image}
+              key={index}
+              id={v.id}
                />)
               
 
