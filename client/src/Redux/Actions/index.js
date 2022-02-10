@@ -34,7 +34,7 @@ export const RESET = "RESET"
 }
 
 export const getGameByName = (name) => async dispatch => {
-    return  await axios.get(`http://localhost:3001/videogames?name=${name}`)
+    return  await axios.get(`http://localhost:3001/videogames/videogames?name=${name}`)
     .then((response) => {
         dispatch({
           type: GET_GAMES_BY_NAME,
@@ -55,14 +55,9 @@ export const getGamesById = (id) => async dispatch => {
 
 }
 
-export const createGame = () => async dispatch => {
-    return  await axios.get("http://localhost:3001/videogames/create")
-    .then((response) => {
-        dispatch({
-          type: CREATE_GAME,
-          payload: response.data,
-        });
-      });
+export const createGame = (e) => async ()=> {
+    return  await axios.post("http://localhost:3001/videogames/create", e)
+  
 
 }
 

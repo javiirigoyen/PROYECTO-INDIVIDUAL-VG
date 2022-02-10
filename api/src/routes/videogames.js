@@ -9,15 +9,19 @@ const { Op } = require('sequelize');
 const info = async ()=> {
     try{
     
-   let gamesShowed = await axios.get('https://api.rawg.io/api/games?key=eab826d4cf914afe83805016c7dd641d')
+   let gamesShowed1 = await axios.get('https://api.rawg.io/api/games?key=eab826d4cf914afe83805016c7dd641d&page_size=40&page=1')
+   let gamesShowed2 = await axios.get('https://api.rawg.io/api/games?key=eab826d4cf914afe83805016c7dd641d&page_size=40&page=2')
+   let gamesShowed3 = await axios.get('https://api.rawg.io/api/games?key=eab826d4cf914afe83805016c7dd641d&page_size=20&page=3')
+   let gamesShowed = gamesShowed1.data.results.concat(gamesShowed2.data.results.concat(gamesShowed3.data.results))
    
      /* let date = await Promise.all([gamesShowed]);
 
     gamesShowed = date[0].data.results;
      */
-    let game = gamesShowed.data.results
+    let game = gamesShowed
     
     game = game.map((result) => {
+        
         return {
             id: result.id,
             name: result.name,
@@ -27,11 +31,14 @@ const info = async ()=> {
             rating: result.rating,
             platforms: result.platforms.map(e => e.platform.name),
             genres: result.genres.map(e => e.name),
+            
         }        
+
     });
+    console.log(game.length)
     let games = []; 
 
-    for(let i = 0; i < 2; i++){
+    for(let i = 0; i < 100; i++){
         games.push(game[i]);
 
     }
@@ -56,9 +63,9 @@ const infoDB = async () => {
 };
 
 const apiInfoByName = async (name) => {
+
     let infoName = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=eab826d4cf914afe83805016c7dd641d`);
     infoName = infoName.data.results;
-    
 
     let mapInfo = infoName.map(i => {
         return {
@@ -74,8 +81,8 @@ const apiInfoByName = async (name) => {
     });
     let games = []; 
 
-    for(let i = 0; i < 2; i++){
-        games.push(mapInfo[i]);
+    for(let i = 0; i < 100; i++){
+       games.push(mapInfo[i]);
 
     }
 
@@ -126,6 +133,7 @@ router.get('/videogames', async (req, res) => {
     const name = req.query.name;
     
     if(name) {
+
         try {
         const apiGames = await apiInfoByName(name);
         const dbGames = await Videogame.findAll({
@@ -145,10 +153,23 @@ router.get('/videogames', async (req, res) => {
             console.log(error)
         }
     } 
+    else{
+        const apiGames = await info();
+        const dbGames = await Videogame.findAll({
+             
+                include: [{
+                    model:  Genre
+                }]
+                
+            });
+            const totalGames = dbGames.concat(apiGames)
+            return res.json(totalGames);
+    }
 });
 
-router.get('/videogame/:id', async (req, res) => {
-    const id = req.params.id;
+router.get('/:id', async (req, res) => {
+ const id = req.params.id;
+    console.log(id)
     try{
         const dbGames = await Videogame.findByPk(id,{
                 

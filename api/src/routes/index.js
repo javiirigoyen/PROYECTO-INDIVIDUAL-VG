@@ -12,7 +12,7 @@ const genre = require("./genre")
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
  
-router.use("/", videogames)
-router.use("/", genre)
+router.use("/videogames", videogames)
+router.use("/genre", genre)
 
 module.exports = router;

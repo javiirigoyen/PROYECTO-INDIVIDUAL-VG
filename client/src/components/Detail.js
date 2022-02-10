@@ -22,7 +22,16 @@ const Detail = () => {
   <div>
     <Nav/>
      <h1>{detail.name}</h1>
+     {
+    detail.Genres ? (detail.Genres?.map(c => (<p>{c.name}</p>))) : (detail.genres?.map(c => (<p>{c}</p>)))
+    } 
+    <img src ={detail.image} alt = "img not found" width="100"/>
+    <p>description{detail.description}</p>
+    <p>released{detail.released}</p>
+    <p>platforms{detail.platforms}</p>
   </div>
+  
+ 
   );
   }
 export default Detail;

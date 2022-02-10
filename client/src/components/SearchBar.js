@@ -4,7 +4,7 @@ import { getGameByName } from '../Redux/Actions';
 
 
 const SearchBar = () => {
-    let dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [ state, setState ] = useState('');
 
    
@@ -14,15 +14,15 @@ const SearchBar = () => {
 
   };
   const handleChange = (e) => {
-      setState(
-           e.target.value
-      )
-  }
+      setState(e.target.value)
+      
+  } 
+  console.log(state)
 
   return (
   <div>
       <form onSubmit={handleSubmit}>
-          <input type='text' value={state} onChange={handleChange} placeholder='buscar..'/>
+          <input type='text' onChange={handleChange} placeholder='buscar..'/>
           <input type='submit' value='Buscar'/>
       </form>
   </div>

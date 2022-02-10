@@ -3,12 +3,25 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllGames } from '../Redux/Actions';
 import Nav from './Nav';
 import CardVideoGame from "./CardVideoGame"
+import Pagination from "./Pagination"
 
 
 const Home = () => {
   let dispatch = useDispatch();  
   const videojuegos = useSelector(state => state.videogames);
   const [ loading, setLoading] = useState(false);
+
+
+const [currentpage, setCurrentPage] = useState(1)
+const [gamesperpage] = useState(15)
+
+// pagina de juegos actuales 
+  const indexOfLastGame = currentpage * gamesperpage;
+  const indexOfFirstGame = indexOfLastGame - gamesperpage;
+  const currentGames = videojuegos.slice(indexOfFirstGame, indexOfLastGame);
+
+// change page
+  const paginate = currentpage => setCurrentPage(currentpage);
 
   useEffect(() => {
     dispatch(getAllGames());
@@ -20,13 +33,15 @@ console.log(videojuegos)
 
     <div>
       <Nav/>
+      <Pagination gamesPerPage={gamesperpage} videojuegos={videojuegos.length} paginate={paginate}/>
       {
         loading ? (
           <div>
             {
-              videojuegos?.map((v, index) => <CardVideoGame
+              currentGames?.map((v, index) => <CardVideoGame
               name={v.name}
               genres={v.genres}
+              Genres={v.Genres}
               img={v.image}
               key={index}
               id={v.id}

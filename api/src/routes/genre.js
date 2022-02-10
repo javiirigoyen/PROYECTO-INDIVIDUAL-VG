@@ -4,7 +4,7 @@ const { Genre } = require('../db.js');
 const axios = require ('axios');
 
 
-router.get('/genre', async(req, res) => {
+router.get('/', async(req, res) => {
     try{
     let genre = await axios.get('https://api.rawg.io/api/genres?key=eab826d4cf914afe83805016c7dd641d');
     genre = genre.data.results;
