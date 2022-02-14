@@ -7,6 +7,10 @@ export const GET_GAMES_BY_ID = "GET_GAMES_BY_ID"
 export const CREATE_GAME = "CREATE_GAME"
 export const GET_GENRE = "GET_GENRE"
 export const RESET = "RESET"
+export const GET_API= "GET_API"
+export const FILTER_BY_GENRE= "FILTER_BY_GENRE"
+export const FILTER_BY_ORDER="FILTER_BY_ORDER"
+export const FILTER_BY_RATING= "FILTER_BY_RATING"
 
 // ESTA ES LA CONEXION DEL BACK CON EL FRONT
  export const getAllGames = () => async dispatch => {
@@ -31,6 +35,16 @@ export const RESET = "RESET"
         });
       });
 
+}
+
+export const getApi = () => async dispatch => {
+  return await axios.get("http://localhost:3001/videogames/Api")
+  .then((response) => {
+    dispatch({
+      type: GET_API,
+      payload:response.data
+    })
+  })
 }
 
 export const getGameByName = (name) => async dispatch => {
@@ -71,10 +85,31 @@ export const getGenre = () => async dispatch => {
       });
 
 }
+export const FilterByOrder = (payload) => {
+  return {
+    type: FILTER_BY_ORDER,
+    payload
+  }
+
+}
+
+export const filterGamesByGenre = (payload) => {
+  return {
+    type: FILTER_BY_GENRE,
+    payload
+  }
+}
 
 export const reset = () => dispatch => {
   return dispatch({
     type: RESET
   })
+}
+
+export const FilterByRating = (payload) => {
+  return {
+    type: FILTER_BY_RATING,
+    payload
+  }
 }
 

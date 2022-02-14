@@ -6,7 +6,7 @@ const axios = require ('axios');
 
 router.get('/', async(req, res) => {
     try{
-    let genre = await axios.get('https://api.rawg.io/api/genres?key=eab826d4cf914afe83805016c7dd641d');
+    let genre = await axios.get('https://api.rawg.io/api/genres?key=d2a1d62e57b54bc8a1d89cbff1393b54');
     genre = genre.data.results;
     
     let mapGenre = genre.map(g => {

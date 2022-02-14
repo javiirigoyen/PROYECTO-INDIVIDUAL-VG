@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllGames } from '../Redux/Actions';
-import Nav from './Nav';
-import CardVideoGame from "./CardVideoGame"
-import Pagination from "./Pagination"
+import { getAllGames, FilterByOrder, FilterByRating } from '../../Redux/Actions';
+import Nav from '../Nav/Nav';
+import CardVideoGame from "../CardVideoGame/CardVideoGame"
+import Pagination from "../Pagination/Pagination"
+import style from "./Home.module.css"
 
 
 const Home = () => {
@@ -27,12 +28,26 @@ const [gamesperpage] = useState(15)
     dispatch(getAllGames());
     setLoading(true)
   }, []);
+
+  //filtros ordenar afabeticamente y por rating 
+  const [, setOrder] = useState()
+  function handlerFilter(event) {
+    dispatch(FilterByOrder(event.target.value))
+    setCurrentPage(1)
+    setOrder("Order" + event.target.value)
+  }
+
+  function handlerRating(event) {
+    dispatch(FilterByRating(event.target.value))
+    setCurrentPage(1)
+    setOrder("Order" + event.target.value)
+  }
   
 console.log(videojuegos)
   return (
 
     <div>
-      <Nav/>
+      <Nav handlerFilter={handlerFilter} handlerRating={handlerRating}/>
       <Pagination gamesPerPage={gamesperpage} videojuegos={videojuegos.length} paginate={paginate}/>
       {
         loading ? (
@@ -45,6 +60,7 @@ console.log(videojuegos)
               img={v.image}
               key={index}
               id={v.id}
+              rating={v.rating}
                />)
               
 

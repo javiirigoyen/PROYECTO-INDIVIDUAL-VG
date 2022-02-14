@@ -8,16 +8,14 @@ const { Op } = require('sequelize');
 
 const info = async ()=> {
     try{
-    
-   let gamesShowed1 = await axios.get('https://api.rawg.io/api/games?key=eab826d4cf914afe83805016c7dd641d&page_size=40&page=1')
-   let gamesShowed2 = await axios.get('https://api.rawg.io/api/games?key=eab826d4cf914afe83805016c7dd641d&page_size=40&page=2')
-   let gamesShowed3 = await axios.get('https://api.rawg.io/api/games?key=eab826d4cf914afe83805016c7dd641d&page_size=20&page=3')
-   let gamesShowed = gamesShowed1.data.results.concat(gamesShowed2.data.results.concat(gamesShowed3.data.results))
-   
-     /* let date = await Promise.all([gamesShowed]);
-
-    gamesShowed = date[0].data.results;
-     */
+        
+        let gamesShowed1 = await axios.get('https://api.rawg.io/api/games?key=d2a1d62e57b54bc8a1d89cbff1393b54')
+        let gamesShowed2 = await axios.get('https://api.rawg.io/api/games?key=d2a1d62e57b54bc8a1d89cbff1393b54&page=2')
+        let gamesShowed3 = await axios.get('https://api.rawg.io/api/games?key=d2a1d62e57b54bc8a1d89cbff1393b54&page=3')
+        let gamesShowed4 = await axios.get('https://api.rawg.io/api/games?key=d2a1d62e57b54bc8a1d89cbff1393b54&page=4')
+        let gamesShowed5 = await axios.get('https://api.rawg.io/api/games?key=d2a1d62e57b54bc8a1d89cbff1393b54&page=5')
+        let gamesShowed = gamesShowed1.data.results.concat(gamesShowed2.data.results).concat(gamesShowed3.data.results).concat(gamesShowed4.data.results).concat(gamesShowed5.data.results)
+  
     let game = gamesShowed
     
     game = game.map((result) => {
@@ -64,7 +62,7 @@ const infoDB = async () => {
 
 const apiInfoByName = async (name) => {
 
-    let infoName = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=eab826d4cf914afe83805016c7dd641d`);
+    let infoName = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=d2a1d62e57b54bc8a1d89cbff1393b54`);
     infoName = infoName.data.results;
 
     let mapInfo = infoName.map(i => {
@@ -89,14 +87,14 @@ const apiInfoByName = async (name) => {
 return mapInfo;
 }
 const apiInfoByid = async (id) => {
-    let infoId = await axios.get(`https://api.rawg.io/api/games/${id}?key=eab826d4cf914afe83805016c7dd641d`);
+    let infoId = await axios.get(`https://api.rawg.io/api/games/${id}?key=d2a1d62e57b54bc8a1d89cbff1393b54`);
     let infoIds = infoId.data;
 
     
         return {
             id: infoIds.id,
             name: infoIds.name,
-            description: infoIds.description,
+            description: infoIds.description_raw,
             released: infoIds.released,
             image: infoIds.background_image,
             rating: infoIds.rating,
@@ -128,6 +126,11 @@ router.get('/', async (req, res) => {
 
     
 });
+
+router.get("/Api", async(req, res) => {
+    const apiVideogame = await info()
+    res.send(apiVideogame)
+})
 
 router.get('/videogames', async (req, res) => {
     const name = req.query.name;

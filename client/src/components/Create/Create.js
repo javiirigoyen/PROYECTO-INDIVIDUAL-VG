@@ -2,8 +2,9 @@ import React from "react"
 //import '../styles/CrearJuego.css'
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { getGenre, createGame } from "../Redux/Actions"
+import { getGenre, createGame } from "../../Redux/Actions"
 import { useHistory } from "react-router-dom";
+import style from "./Create.module.css"
 
 
 

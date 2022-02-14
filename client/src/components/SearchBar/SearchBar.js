@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getGameByName } from '../Redux/Actions';
+import { getGameByName } from '../../Redux/Actions';
 
 
 const SearchBar = () => {
