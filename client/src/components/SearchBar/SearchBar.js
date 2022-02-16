@@ -22,8 +22,8 @@ const SearchBar = () => {
   return (
   <div>
       <form onSubmit={handleSubmit}>
-          <input type='text' onChange={handleChange} placeholder='buscar..'/>
-          <input type='submit' value='Buscar'/>
+          <input type='text' onChange={handleChange} placeholder='Search...'/>
+          <input type='submit' value='Search'/>
       </form>
   </div>
   );

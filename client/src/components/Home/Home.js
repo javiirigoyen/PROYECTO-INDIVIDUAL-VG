@@ -36,24 +36,29 @@ const [gamesperpage] = useState(15)
     setCurrentPage(1)
     setOrder("Order" + event.target.value)
   }
-
+  
   function handlerRating(event) {
     dispatch(FilterByRating(event.target.value))
     setCurrentPage(1)
     setOrder("Order" + event.target.value)
+    
   }
+  /* setOrden(`Ordenado ${e.target.value}`) */
+    
   
 console.log(videojuegos)
   return (
 
-    <div>
+    <div >
+      {currentGames.length > 0 ? 
+      <div>
       <Nav handlerFilter={handlerFilter} handlerRating={handlerRating}/>
       <Pagination gamesPerPage={gamesperpage} videojuegos={videojuegos.length} paginate={paginate}/>
       {
-        loading ? (
+       
           <div>
             {
-              currentGames?.map((v, index) => <CardVideoGame
+              currentGames?.map((v, index) => <CardVideoGame 
               name={v.name}
               genres={v.genres}
               Genres={v.Genres}
@@ -62,16 +67,21 @@ console.log(videojuegos)
               id={v.id}
               rating={v.rating}
                />)
-              
-
             }
           </div>
-        )
-        : (<div>esta cargando</div>)
+        
       }
+      </div>
+      :
+      <div>
+        <img src="https://www.itl.cat/pngfile/big/6-60813_kann-man-in-windows-10-ein-gif-als.gif" alt='img not found' height="100%"/>
+      </div>
+
+      }
+      
     </div>
     );
-  };
+    }
   
   export default Home;
 

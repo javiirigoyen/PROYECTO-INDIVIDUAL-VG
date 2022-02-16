@@ -1,0 +1,22 @@
+.todo {
+    display: flex;
+    justify-content: center;
+    
+}
+.todo p{
+    color: white;
+    font-weight: bolder;
+}
+
+.todo li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    height: 3rem;
+    width: 3.5rem;
+    background-color: black;
+    color: red;
+    margin: 0 0.5rem;
+    border-radius: 15px;
+}

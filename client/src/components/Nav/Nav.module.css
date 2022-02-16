@@ -1,0 +1,27 @@
+.cont{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    flex-direction: column;
+    width: 100vw;
+    text-decoration: none;
+}
+.filters{
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    text-decoration: none;
+    /* border-bottom: 2px solid red; */
+    background-color: rgb(160, 2, 2);
+}
+
+.nav > a {
+    text-decoration: none;
+    color: white;
+}

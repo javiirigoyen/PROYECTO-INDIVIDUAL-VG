@@ -3,24 +3,30 @@ import { Link } from 'react-router-dom';
 import SearchBar from "../SearchBar/SearchBar"
 import CreatedOrExist from '../../Filters/CreatedOrExist';
 import ByGenre from '../../Filters/ByGenre';
+import style from "./Nav.module.css"
 
 const Nav = ({handlerFilter, handlerRating}) => {
 
-  return <div>
-    <CreatedOrExist/>
-    <ByGenre/>
-      <Link to="/">
-         LandingPage
-      </Link> 
-      <Link to="/home">
+
+  return <div className={style.cont}>
+      
+    <div className={style.nav}>
+       <Link to="/home">
           Home
      </Link>
       <Link to="/create">
              Create
-      </Link>
+      </Link> 
+       <Link to="/">
+         LandingPage
+      </Link> 
+       <SearchBar/>  
+      </div>
 
-      <SearchBar/>
-      <div style ={{height: "100px"}}>
+    
+     <div className={style.filters}> 
+     <CreatedOrExist/>
+    <ByGenre/>  <div>
         <select onChange={(event) => handlerFilter(event)}>
           <option value="">Filter alphabetically</option>
           <option value="a-z">A-Z</option>
@@ -28,13 +34,14 @@ const Nav = ({handlerFilter, handlerRating}) => {
         </select>
       </div>
 
-      <div style ={{height: "100px"}}>
+      <div>
         <select onChange={(event) => handlerRating(event)}>
           <option value="">Filter Rating</option>
           <option value="menor-mayor">menor-mayor</option>
           <option value="mayor-menor">mayor-menor</option>
         </select>
-      </div>
+      </div></div>
+     
   </div>;
 };
 

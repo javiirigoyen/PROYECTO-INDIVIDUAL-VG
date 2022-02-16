@@ -1,4 +1,57 @@
-.titulo{
-    background-color: yellow;
-    width: fit-content;
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 30%;
+    padding: 0 15px;
+    text-decoration: none;
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {margin: 0px;
+margin-left: 60px;
+margin-right: 10px;
+text-decoration: none;
 }
+  
+  /* Clear floats after the columns */
+ 
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 9px 8px 8px 0 rgb(160, 2, 2); /* this adds the "card" effect */
+    padding: -3spx;
+    text-align: center;
+    font-size: 12px;
+    background-color:transparent;
+   
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+     min-height: 500px;
+     max-height: 500px;
+     background-color: rgb(32, 32, 32);
+    
+    
+  }
+  
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 1000px) {
+    .column {
+      width: 100%;
+      display: auto;
+      margin-bottom: 20px;
+      text-decoration: none;
+    }
+  }
+
+  .container{
+    text-decoration: none;
+  }
+
+  .sub {
+    text-decoration: none;
+    text-decoration-line: none;
+    color: white;
+  }

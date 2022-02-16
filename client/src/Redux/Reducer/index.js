@@ -15,6 +15,7 @@ const rootReducer = (state = inicialState, action) => {
             allVideogames:action.payload
         }
         case GET_DB:
+            console.log("hola", state.videogames)
         return {
             ...state,
             videogames: action.payload, 
@@ -41,6 +42,7 @@ const rootReducer = (state = inicialState, action) => {
                     genre: action.payload
                 }
                 case GET_API:
+                    console.log(state.videogames)
                     return {
                         ...state,
                         videogames:action.payload,
