@@ -56,7 +56,7 @@ console.log(videojuegos)
       <Pagination gamesPerPage={gamesperpage} videojuegos={videojuegos.length} paginate={paginate}/>
       {
        
-          <div>
+          <div className={style.space}>
             {
               currentGames?.map((v, index) => <CardVideoGame 
               name={v.name}
@@ -73,8 +73,9 @@ console.log(videojuegos)
       }
       </div>
       :
-      <div>
-        <img src="https://www.itl.cat/pngfile/big/6-60813_kann-man-in-windows-10-ein-gif-als.gif" alt='img not found' height="100%"/>
+      <div className={style.div}>
+        <img src="https://www.itl.cat/pngfile/big/6-60813_kann-man-in-windows-10-ein-gif-als.gif" alt='img not found' height="100%"  className={style.loading}/>
+        <h1>Loading...</h1>
       </div>
 
       }

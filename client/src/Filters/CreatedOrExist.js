@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getAllGames, getDb, getApi } from "../Redux/Actions";
+import style from "./filters.module.css"
 
 function CreatedOrExist() {
     const [filtrado, setFiltrado] = useState("")
@@ -24,7 +25,7 @@ const dispatch = useDispatch()
 
 return (
 <div>
-    <select onChange={(e) => setFiltrado(e.target.value)}>
+    <select onChange={(e) => setFiltrado(e.target.value)} className={style.filter}>
     <option value ="">Filter by origin</option>
     <option>All</option>
     <option>Created</option>

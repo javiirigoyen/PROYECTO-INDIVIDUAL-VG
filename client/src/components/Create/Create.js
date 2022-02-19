@@ -57,22 +57,22 @@ const Create= () => {
 
   const handleSumbit = (e) => {
 e.preventDefault();
-    if( state.name === '') return alert('no podes name');
-if( state.description === '') return alert('no podes desc');
-if( state.rating === '') return alert('no podes rati');
-if( state.image === '') return alert('no podes img');
-if( state.released=== '') return alert('no podes rel');
-if( state.platforms.length === 0) return alert('no podes plat');
-if( state.genre.length === 0) return alert('no podes gen')
+if( state.name === '') return alert('name is required');
+if( state.description === '') return alert('description is required');
+if( state.rating === '') return alert('rating is required');
+if( state.image === '') return alert('image is required');
+if( state.released=== '') return alert('released is required');
+if( state.platforms.length === 0) return alert('platforms is required');
+if( state.genre.length === 0) return alert('genre is required')
 
     dispatch(createGame(state));
     myHistory.push("/home")
-    alert("The game was created")
+    alert("Game created successfully!")
   }
 
   return (
   <form className='cont-form' onSubmit={handleSumbit}>
-    <h1>Crea tu propio juego</h1>
+    <h1>Create your own game</h1>
     <div>
          <label> Name the Game: </label>
     <input
@@ -85,7 +85,7 @@ if( state.genre.length === 0) return alert('no podes gen')
     /> 
     </div>
 <div>
-      <label>Description: </label>
+      <label >Description: </label>
   <input
     className='input-form'
     type='text'
@@ -161,7 +161,7 @@ if( state.genre.length === 0) return alert('no podes gen')
         </div>
     </div>
 
-    <input type='submit' value='Crear juego'/>
+    <input type='submit' value='Create Game'/>
   </form>
   );
 };

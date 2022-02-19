@@ -15,11 +15,9 @@ for (let i = 1; i <= Math.ceil(videojuegos / gamesPerPage); i++){
       <nav>
   <div className={style.todo}>
       {pageNumbers.map(number => (
-          <li key={number}>
-              <Link style={{ textDecoration: 'none' }} onClick={() => paginate(number)} to='/home'>
-                <p>{number}</p>
-              </Link>
-          </li>
+          <div key={number} className={style.botones}>
+              <button className={style.boton} onClick={() => paginate(number)} >{number}</button>
+          </div>
   ))}
   </div>
   </nav>

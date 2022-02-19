@@ -1,6 +1,7 @@
 import React , {useEffect, useState } from "react"
 import { useDispatch, useSelector} from "react-redux"
 import {filterGamesByGenre, getGenre} from "../Redux/Actions"
+import style from "./filters.module.css"
 
 const ByGenre = () => {
     const dispatch = useDispatch()
@@ -16,9 +17,9 @@ const ByGenre = () => {
     console.log(genres)
     return (
         <div>
-          <select onChange={(e) => handleGenres(e)}>
+          <select onChange={(e) => handleGenres(e)} className={style.filter}>
               <option value="">Filter By Genre</option>
-              <option>todos</option>
+              <option>All</option>
               {
                   genres && genres.map(g => (
                       <option value={g.name} key={g.id}>{g.name}</option>

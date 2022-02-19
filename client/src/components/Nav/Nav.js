@@ -5,6 +5,7 @@ import CreatedOrExist from '../../Filters/CreatedOrExist';
 import ByGenre from '../../Filters/ByGenre';
 import style from "./Nav.module.css"
 
+
 const Nav = ({handlerFilter, handlerRating}) => {
 
 
@@ -12,13 +13,13 @@ const Nav = ({handlerFilter, handlerRating}) => {
       
     <div className={style.nav}>
        <Link to="/home">
-          Home
+          <img src='https://www.pngmart.com/files/17/Vector-Gamepad-PNG-Image.png' width="50px"/>
      </Link>
       <Link to="/create">
              Create
       </Link> 
        <Link to="/">
-         LandingPage
+         Landing Page
       </Link> 
        <SearchBar/>  
       </div>
@@ -27,7 +28,7 @@ const Nav = ({handlerFilter, handlerRating}) => {
      <div className={style.filters}> 
      <CreatedOrExist/>
     <ByGenre/>  <div>
-        <select onChange={(event) => handlerFilter(event)}>
+        <select onChange={(event) => handlerFilter(event)} className={style.filter}>
           <option value="">Filter alphabetically</option>
           <option value="a-z">A-Z</option>
           <option value="z-a">Z-A</option>
@@ -35,7 +36,7 @@ const Nav = ({handlerFilter, handlerRating}) => {
       </div>
 
       <div>
-        <select onChange={(event) => handlerRating(event)}>
+        <select onChange={(event) => handlerRating(event)} className={style.filter}>
           <option value="">Filter Rating</option>
           <option value="menor-mayor">menor-mayor</option>
           <option value="mayor-menor">mayor-menor</option>

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getGamesById, reset } from '../../Redux/Actions'
 import Nav from "../Nav/Nav"
 import { useParams } from "react-router-dom"
+import style from "react-router-dom"
 
 const Detail = () => {
 
