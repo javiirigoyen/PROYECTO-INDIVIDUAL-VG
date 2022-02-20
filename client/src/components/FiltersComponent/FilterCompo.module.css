@@ -1,0 +1,17 @@
+.filter {
+    background-color: rgb(112, 0, 0);
+    color: white;
+    border: 1px solid rgb(112, 0, 0);
+    border-radius: 3px;
+}
+
+.filter::-webkit-scrollbar {
+    width: 5px;
+    background-color:#e75858;
+   }
+  
+   .filters{
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+}

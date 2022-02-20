@@ -5,6 +5,7 @@ import Nav from '../Nav/Nav';
 import CardVideoGame from "../CardVideoGame/CardVideoGame"
 import Pagination from "../Pagination/Pagination"
 import style from "./Home.module.css"
+import FilterCompo from "../FiltersComponent/FilterCompo"
 
 
 const Home = () => {
@@ -52,7 +53,8 @@ console.log(videojuegos)
     <div >
       {currentGames.length > 0 ? 
       <div>
-      <Nav handlerFilter={handlerFilter} handlerRating={handlerRating}/>
+      <Nav/>
+      <FilterCompo  handlerFilter={handlerFilter} handlerRating={handlerRating}/>
       <Pagination gamesPerPage={gamesperpage} videojuegos={videojuegos.length} paginate={paginate}/>
       {
        

@@ -1,0 +1,103 @@
+.form {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    align-items: flex-end;
+    width: 600px;
+    left: 15px;
+    top: 95px;
+}
+
+.checkbox {
+    display: flex;
+    position: fixed;
+    top: 230px;
+    left: 410px;
+    flex-direction: row-reverse;
+}
+
+.checkbox > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    column-gap: 20px;
+}
+
+.date {
+    width: 170px;
+    padding-left: 4px;
+}
+
+.create {
+    position: fixed;
+    top: 600px;
+    left: 854px;
+    font-family: cursive;
+    font-size: 20px;
+    width: 250px;
+    height: 40px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.rating {
+    width: 170px;
+}
+
+.form > h1 {
+    font-family: cursive;
+    position: fixed;
+    top: 20px;
+    left: 680px;
+}
+
+.platDiv {
+    row-gap: 3px;
+}
+
+.platDiv > div {
+    background-color: rgb(112, 0, 0);
+    border-radius: 3px;
+    border: 1px solid white;
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+#genres {
+    position:fixed;
+    left: 620px;
+    top: 119px;
+}
+
+.img {
+    width: 800px;
+    height: 400px;
+    position: fixed;
+    object-fit: cover;
+    top: 180px;
+}
+
+.platDiv > label{
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+
+.platDiv > div > label{
+    margin-bottom: 1px;
+}
+
+.form > div > input{
+    border: 2px solid rgb(112, 0, 0);
+    border-radius: 3px;
+    width: 194px;
+    height: 20px;
+}
+
+.alert {
+    position: fixed;
+    left: 855px;
+    top: 620px;
+    color: rgb(255, 0, 0);
+}

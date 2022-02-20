@@ -6,7 +6,7 @@ import ByGenre from '../../Filters/ByGenre';
 import style from "./Nav.module.css"
 
 
-const Nav = ({handlerFilter, handlerRating}) => {
+const Nav = () => {
 
 
   return <div className={style.cont}>
@@ -25,23 +25,7 @@ const Nav = ({handlerFilter, handlerRating}) => {
       </div>
 
     
-     <div className={style.filters}> 
-     <CreatedOrExist/>
-    <ByGenre/>  <div>
-        <select onChange={(event) => handlerFilter(event)} className={style.filter}>
-          <option value="">Filter alphabetically</option>
-          <option value="a-z">A-Z</option>
-          <option value="z-a">Z-A</option>
-        </select>
-      </div>
-
-      <div>
-        <select onChange={(event) => handlerRating(event)} className={style.filter}>
-          <option value="">Filter Rating</option>
-          <option value="menor-mayor">menor-mayor</option>
-          <option value="mayor-menor">mayor-menor</option>
-        </select>
-      </div></div>
+    
      
   </div>;
 };

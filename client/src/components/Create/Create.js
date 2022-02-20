@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { getGenre, createGame } from "../../Redux/Actions"
 import { useHistory } from "react-router-dom";
 import style from "./Create.module.css"
-
+import Nav from "../Nav/Nav";
 
 
 const Create= () => {
@@ -69,16 +69,19 @@ if( state.genre.length === 0) return alert('genre is required')
     myHistory.push("/home")
     alert("Game created successfully!")
   }
-
+console.log(state)
   return (
-  <form className='cont-form' onSubmit={handleSumbit}>
+    <div>
+      <Nav />
+
+  <form className={style.form} onSubmit={handleSumbit}>
     <h1>Create your own game</h1>
     <div>
          <label> Name the Game: </label>
     <input
     className='input-form'
     type='text'
-    placeholder='Nombre'
+    placeholder='Name'
     value={state.name}
     name='name'
     onChange={handleChange}
@@ -89,7 +92,7 @@ if( state.genre.length === 0) return alert('genre is required')
   <input
     className='input-form'
     type='text'
-    placeholder='Descripcion'
+    placeholder='Description'
     name='description'
     value={state.description}
     onChange={handleChange}
@@ -98,9 +101,9 @@ if( state.genre.length === 0) return alert('genre is required')
 <div>
      <label>Released: </label>
   <input
-    className='input-form'
+    className={style.date}
     name="released"
-    type='text'
+    type="date"
     placeholder="YYYY-MM-DD"
     value={state.released}
     onChange={handleChange}
@@ -109,11 +112,15 @@ if( state.genre.length === 0) return alert('genre is required')
     <div>
      <label>Rating: </label>
   <input
-    className='input-form'
-    type='text'
+    className={style.rating}
+    type='number'
     name="rating"
     value={state.rating}
     onChange={handleChange}
+    placeholder="From 0 to 5"
+    step="0.1"
+    max="5"
+    min="0.1"
     /> 
     </div>
     <div>
@@ -124,10 +131,14 @@ if( state.genre.length === 0) return alert('genre is required')
     name="image"
     value={state.image}
     onChange={handleChange}
+    placeholder="Insert an URL"
     /> 
     </div>
 
-  <div>
+    <div  className={style.checkbox}>
+
+    <div className={style.platDiv} id={style.genres}>
+    <label>Genres: </label>
     {genres.map((c, index) => (
       <div key={index}>
        <input onChange={e => handleGenres(e)}
@@ -140,8 +151,7 @@ if( state.genre.length === 0) return alert('genre is required')
     ))}
     </div> 
 
-    <div>
-      <div> 
+      <div className={style.platDiv}> 
             <label>Platforms: </label>
             <div><input value="PlayStation 4" type="checkbox" name="platforms" onChange={handlePlatforms}/><label>PS4</label></div>
             <div><input value="PlayStation 5" type="checkbox" name="platforms" onChange={handlePlatforms}/><label>PS5</label></div>
@@ -161,8 +171,21 @@ if( state.genre.length === 0) return alert('genre is required')
         </div>
     </div>
 
-    <input type='submit' value='Create Game'/>
+  
+    
+
+    <button class={style.create} type="submit" disabled={!state.name || !state.description || !state.rating || !state.image || !state.released || !state.platforms.length || !state.genre.length}>Create Game</button>
+    {
+    (!state.name || !state.description || !state.rating || !state.image || !state.released || !state.platforms.length || !state.genre.length) ?
+    <h3 className={style.alert}>You have to complete all the fields to create a game!</h3>:
+    ""
+    }
   </form>
+  {
+    state.image && <img src={state.image} alt="IMAGE PREVIEW" className={style.img}/>
+  }
+  
+    </div>
   );
 };
 
