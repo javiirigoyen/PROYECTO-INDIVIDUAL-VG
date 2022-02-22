@@ -1,0 +1,76 @@
+.loading {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .div {
+      overflow-y: hidden;
+      overflow-x: hidden;
+      width: 100vw;
+      height: 100vh;
+  }
+  
+  .div > h1 {
+      position: fixed;
+      color: white;
+      top: 460px;
+      left: 800px;
+      font-family: cursive;
+      letter-spacing: 2px;
+  }
+
+  .main {
+      color: white;
+      display: flex;
+      width: 95vw;
+      margin-left: 50px;
+  }
+
+  .main > img {
+      width: 800px;
+      height: 600px;
+      object-fit: cover
+  }
+
+  .info {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: baseline;
+      
+  }
+
+  .desc {
+      text-align: left;
+      margin-left: 40px;
+      max-height: 238px;
+      overflow: auto;
+  }
+
+  .info > div > h3 {
+      font-weight: bold;
+      padding-bottom: 15px;
+  }
+
+  .info > div {
+      text-align: left;
+  }
+
+  .left {
+      background-color: rgba(112, 0, 0, 0.76);
+
+  }
+
+  .plat {
+    overflow: auto;
+    max-height: 200px;
+  }
+
+  .plat::-webkit-scrollbar {
+    width: 5px;
+    background-color:#721212ad;
+   }
+
+   .desc::-webkit-scrollbar {
+    width: 5px;
+    background-color:#721212ad;
+   }

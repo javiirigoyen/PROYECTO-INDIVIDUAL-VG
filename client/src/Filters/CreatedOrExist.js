@@ -26,7 +26,7 @@ const dispatch = useDispatch()
 return (
 <div>
     <select onChange={(e) => setFiltrado(e.target.value)} className={style.filter}>
-    <option value ="">Filter by origin</option>
+    <option value ="">Filter By Origin</option>
     <option>All</option>
     <option>Created</option>
     <option>Api</option>

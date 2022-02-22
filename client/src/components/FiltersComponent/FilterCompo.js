@@ -10,7 +10,7 @@ export default function Filters({handlerFilter, handlerRating}){
         <CreatedOrExist/>
        <ByGenre/>  <div>
            <select onChange={(event) => handlerFilter(event)} className={style.filter}>
-             <option value="">Filter alphabetically</option>
+             <option value="">Filter Alphabetically</option>
              <option value="a-z">A-Z</option>
              <option value="z-a">Z-A</option>
            </select>
