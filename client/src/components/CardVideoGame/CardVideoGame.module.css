@@ -5,7 +5,18 @@
     padding: 0 15px;
     text-decoration: none;
   }
+
+  .row :hover {
+    transform: translateY(-10px);
+    transition-duration: 200ms;
+    border: 5px solid blue;
+  }
   
+  .img {
+    pointer-events: none;
+    margin-bottom: 0px;
+  }
+
   /* Remove extra left and right margins, due to padding in columns */
   .row {margin: 0px;
 margin-left: 60px;
@@ -17,7 +28,7 @@ text-decoration: none;
  
   
   /* Style the counter cards */
-  .card {
+  .sub {
     box-shadow: 9px 8px 10px 0 rgb(112, 0, 0); /* this adds the "card" effect */
    text-align: center;
     font-size: 12px;
@@ -29,10 +40,13 @@ text-decoration: none;
      min-height: 500px;
      max-height: 500px;
      background-color: rgb(32, 32, 32);
-    
+    width: 30%;
     
   }
   
+  .card :hover {
+    
+  }
   
   /* Responsive columns - one column layout (vertical) on small screens */
   @media screen and (max-width: 1000px) {
@@ -48,8 +62,28 @@ text-decoration: none;
     text-decoration: none;
   }
 
-  .sub {
+  .card {
     text-decoration: none;
     text-decoration-line: none;
     color: white;
+  }
+
+  .card > h1 {
+    padding-top: 15px;
+  }
+
+  .img2 {
+    object-fit: cover;
+    width: 440px;
+    height: 350px;
+    pointer-events: none;
+  }
+
+  .genre {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    font-size: 15px;
+    pointer-events: none;
+    padding-bottom: 5px;
   }

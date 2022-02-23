@@ -69,8 +69,7 @@ if( state.genre.length === 0) return alert('genre is required')
     myHistory.push("/home")
     alert("Game created successfully!")
   }
-console.log(state)
-  return (
+return (
     <div>
       <Nav />
 
