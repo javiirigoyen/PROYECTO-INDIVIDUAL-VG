@@ -6,7 +6,7 @@ import CardVideoGame from "../CardVideoGame/CardVideoGame"
 import Pagination from "../Pagination/Pagination"
 import style from "./Home.module.css"
 import FilterCompo from "../FiltersComponent/FilterCompo"
-
+//
 
 const Home = () => {
   let dispatch = useDispatch();  
@@ -61,9 +61,9 @@ console.log(videojuegos)
           <div className={style.space}>
             {
               currentGames?.map((v, index) => <CardVideoGame 
-              name={v.name}
               genres={v.genres}
               Genres={v.Genres}
+              name={v.name}
               img={v.image}
               key={index}
               id={v.id}
