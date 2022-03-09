@@ -3,7 +3,7 @@ import CreatedOrExist from '../../Filters/CreatedOrExist';
 import ByGenre from '../../Filters/ByGenre';
 import style from "./FilterCompo.module.css"
 //
-
+//
 export default function Filters({handlerFilter, handlerRating}){
 
     return (
